@@ -141,7 +141,7 @@ nav {
 
 @media only screen and (max-width : 400px) {
     .inputArea {
-        font-size: 14px;
+        font-size: 12px;
         padding: 0.5rem;
     }
 }
