@@ -16,7 +16,7 @@ nav {
 .about,
 .contact {
     margin-top: 3rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .about-left,
