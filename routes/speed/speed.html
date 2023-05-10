@@ -18,7 +18,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
-    <title>Unit Converter||Convert Temperature</title>
+    <title>Unit Converter||Convert Speed</title>
   </head>
   <body>
     <div class="mainBody">
@@ -42,13 +42,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link avt" href="#">Temperature</a>
+                <a class="nav-link " href="../temperature/temp.html">Temperature</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../length/length.html">Length</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../speed/speed.html">Speed</a>
+                <a class="nav-link avt" href="#">Speed</a>
               </li>
             </ul>
           </div>
@@ -59,33 +59,43 @@
 
             <!-- body starts -->
             <div class="container-fluid flex flex-column">
-              <h2>Temperature Converter</h2>
+              <h2>Speed Converter</h2>
               <div class="container flex flex-column gap-3 mt-3">
                 <div class="inputArea">
                   <form action="#">
                     <select name="values" id="values">
                       <option value="#">Select the unit</option>
-                      <option value="celcius">Degree Celcius</option>
-                      <option value="farenheit">Farenheit</option>
-                      <option value="kelvin">Kelvin</option>
+                      <option value="mph">Mile per Hour</option>
+                      <option value="fps">Foot Per second</option>
+                      <option value="mps">Meter per second</option>
+                      <option value="kph">Kilometer per hour</option>
+                      <option value="knot">knot</option>
                     </select>
                     <input type="number" placeholder="Enter the Value" id="ivalue" oninput="getValue()"/>
                   </div>
                   <!-- <button class="btn btn-outline-primary" id="cBtn">Convert</button> -->
                 </form>
               </div>
-              <div class="conValues flex flex-column gap-5 mt-3 colo pt-5 pb-5">
+              <div class="conValues flex flex-column gap-5 mt-3 colo py-3 px-5">
                 <div class="celcius comConv flex">
-                  <label for="celcius">Degree Celcius :</label>
-                  <input type="number" id="celcius" readonly value="0">
+                  <label for="mph">Mile per Hour :</label>
+                  <input type="number" id="mph" readonly value="0">
                 </div>
                 <div class="farenheit comConv flex">
-                  <label for="farenheit">Farenheit :</label>
-                  <input type="number" id="farenheit" value="0" readonly>
+                  <label for="fph">Foot Per second :</label>
+                  <input type="number" id="fps" value="0" readonly>
                 </div>
                 <div class="kelvin comConv flex">
-                  <label for="kelvin">Kelvin :</label>
-                  <input type="number" id="kelvin" value="0" readonly>
+                  <label for="mps">Meter per second :</label>
+                  <input type="number" id="mps" value="0" readonly>
+                </div> 
+                <div class="kelvin comConv flex">
+                  <label for="kph">Kilometer per hour :</label>
+                  <input type="number" id="kph" value="0" readonly>
+                </div> 
+                <div class="kelvin comConv flex">
+                  <label for="knot">Knot :</label>
+                  <input type="number" id="knot" value="0" readonly>
                 </div> 
               </div>
             </div>
@@ -102,27 +112,49 @@
     </div>
   </body>
   <script>
-    let celcius=document.querySelector('#celcius')
-    let farenheit=document.querySelector('#farenheit')
-    let kelvin=document.querySelector('#kelvin')
+    let mps=document.querySelector('#mps')
+    let kph=document.querySelector('#kph')
+    let mph=document.querySelector('#mph')
+    let fps=document.querySelector('#fps')
+    let knot=document.querySelector('#knot')
     let ivalue=document.getElementById('ivalue')
     let tSi=document.getElementById('values')
 
-    function getValue(){
-      if(tSi.value=="celcius"){
-        celcius.value=Math.round(ivalue.value).toFixed(2);
-        farenheit.value=((ivalue.value*9/5)+32).toFixed(2);
-        kelvin.value=(Number(ivalue.value)+ 273.15)
+    function getValue(){mph
+      if(tSi.value=="mph"){
+        mph.value=Math.round(ivalue.value).toFixed(2);
+        fps.value=(ivalue.value*1.467).toFixed(4);
+        knot.value=(Number(ivalue.value)/1.151).toFixed(4);
+        kph.value=(Number(ivalue.value)*1.609).toFixed(4);
+        mps.value=(Number(ivalue.value)/2.237).toFixed(4);
       }
-      else if(tSi.value=="farenheit"){
-        farenheit.value=Math.round(ivalue.value).toFixed(2);
-        celcius.value=((ivalue.value -32) * 5/9).toFixed(2);
-        kelvin.value=(ivalue.value - 32 * 5/9 + 273.15 ).toFixed(2);
+      else if(tSi.value=="mps"){
+        mps.value=Math.round(ivalue.value).toFixed(2);
+        fps.value=(ivalue.value*3.281).toFixed(4);
+        knot.value=(Number(ivalue.value)*1.944).toFixed(4);
+        kph.value=(Number(ivalue.value)*3.6).toFixed(4);
+        mph.value=(Number(ivalue.value)*2.237).toFixed(4);
       }
-      else if(tSi.value=="kelvin"){
-        kelvin.value=Math.round(ivalue.value).toFixed(2);
-        farenheit.value=((ivalue.value - 273.15) * 9/5 + 32).toFixed(2);
-        celcius.value=(ivalue.value - 273.15).toFixed(2);
+      else if(tSi.value=="kph"){
+        kph.value=Math.round(ivalue.value).toFixed(2);
+        fps.value=(ivalue.value/1.097).toFixed(4);
+        knot.value=(Number(ivalue.value)/1.852).toFixed(4);
+        mph.value=(Number(ivalue.value)/1.609).toFixed(4);
+        mps.value=(Number(ivalue.value)/3.6).toFixed(4);
+      }
+      else if(tSi.value=="knot"){
+        knot.value=Math.round(ivalue.value).toFixed(2);
+        fps.value=(ivalue.value*1.688).toFixed(4);
+        kph.value=(Number(ivalue.value)*1.852).toFixed(4);
+        mph.value=(Number(ivalue.value)*1.151).toFixed(4);
+        mps.value=(Number(ivalue.value)/1.944).toFixed(4);
+      }
+      else if(tSi.value=="fps"){
+        fps.value=Math.round(ivalue.value).toFixed(2);
+        kph.value=(ivalue.value*1.097).toFixed(4);
+        knot.value=(Number(ivalue.value)/1.688).toFixed(4);
+        mps.value=(Number(ivalue.value)/3.281).toFixed(4);
+        mph.value=(Number(ivalue.value)/1.467).toFixed(4);
       }
     }
   </script>

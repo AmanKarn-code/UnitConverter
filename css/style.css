@@ -10,7 +10,6 @@ nav {
 
 .logo {
     width: 4vw;
-    /* margin-top: 1rem; */
 }
 
 .about,
@@ -56,6 +55,7 @@ nav {
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .user,
@@ -82,7 +82,7 @@ nav {
 }
 
 .inputArea {
-    border: 1px solid grey;
+    border: 1px solid #81bfcd;
     border-radius: 10px;
     width: fit-content;
     padding: 1rem;
